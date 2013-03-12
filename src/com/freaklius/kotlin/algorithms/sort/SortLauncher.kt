@@ -11,8 +11,7 @@ public class SortLauncher{
      * Launches sort algorithms
      */
     public fun launch() {
-//        val arr: Array<Long> = randomNumericArray(10, 100);
-        val arr: Array<Long> = array(79.toLong(), 11.toLong(), 35.toLong(), 76.toLong(), 9.toLong(), 90.toLong(), 37.toLong(), 33.toLong(), 19.toLong(), 58.toLong());
+        val arr: Array<Long> = randomNumericArray(10, 100);
         for (algorithm in getAlgorithmsList()){
             measureAlgorithm(arr.copyOf(), algorithm);
         }
