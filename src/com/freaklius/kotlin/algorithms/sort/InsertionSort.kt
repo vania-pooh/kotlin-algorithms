@@ -1,4 +1,4 @@
-package com.freaklius.kotlin.algorithms
+package com.freaklius.kotlin.algorithms.sort
 
 /**
  * An implementation of insertion sort algorithm

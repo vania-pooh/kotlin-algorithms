@@ -1,4 +1,4 @@
-package com.freaklius.kotlin.algorithms
+package com.freaklius.kotlin.algorithms.sort
 
 /**
  * An abstract sort algorithm class (a base class for all sort algorithms)

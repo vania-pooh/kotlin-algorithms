@@ -1,4 +1,4 @@
-package com.freaklius.kotlin.algorithms
+package com.freaklius.kotlin.algorithms.sort
 
 /**
  * Bubble sort algorithm
