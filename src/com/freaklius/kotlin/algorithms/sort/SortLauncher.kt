@@ -46,6 +46,7 @@ public class SortLauncher{
                 CombSort(),
                 MergeSort(),
                 HeapSort(),
+                QuickSort(),
                 BogoSort()
         );
     }
