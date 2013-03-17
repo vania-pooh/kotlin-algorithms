@@ -1,0 +1,50 @@
+package com.freaklius.kotlin.algorithms.sort
+
+/**
+ * Counting sort algorithm implementation.
+ * Input array should consist of integers only in the range 0..k, i.e. this sort algorithm works
+ * only for bounded array. In this method we determine k using max() method - in reality we should pass it directly.
+ * Average performance = O(n)
+ */
+public class CountingSort : SortAlgorithm {
+
+    public override fun sort(arr: Array<Long>): Array<Long> {
+        var countsArray = Array<Int>(maximum(arr), {i -> 0});
+        //Determining counts of every integer in input array
+        for (i in 0..arr.size - 1){
+            var countsArrayIndex = arr[i].toInt() - 1; //Counts array is indexed by the values from the input array
+            countsArray[countsArrayIndex] = countsArray[countsArrayIndex] + 1;
+        }
+        //Determining counts of integers smaller than current input array integer
+        for (j in 1..countsArray.size - 1){
+            countsArray[j] = countsArray[j] + countsArray[j - 1];
+        }
+        //Preparing sorted output array
+        var outputArray = Array<Long>(arr.size, {i -> 0});
+        var k = arr.size - 1;
+        while(k >= 0){
+            var countsArrayIndex = arr[k].toInt() - 1;
+            outputArray[countsArray[countsArrayIndex] - 1] = arr[k];
+            countsArray[countsArrayIndex]--; //Two equal input array elements should be placed in adjacent but different cells
+            k--;
+        }
+        return outputArray;
+    }
+
+    /**
+     * Returns maximum value of an array (a linear complexity operation).
+     */
+    private fun maximum(arr: Array<Long>) : Int{
+        var max : Int = 0;
+        for (value in arr){
+            if (value > max){
+                max = value.toInt();
+            }
+        }
+        return max;
+    }
+
+    public override fun getName(): String {
+        return "CountingSort";
+    }
+}
