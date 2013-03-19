@@ -48,6 +48,7 @@ public class SortLauncher{
                 HeapSort(),
                 QuickSort(),
                 CountingSort(),
+                RadixSort(),
                 BogoSort()
         );
     }
