@@ -19,7 +19,8 @@ public class RadixSort : SortAlgorithm {
     }
 
     /**
-     * Sorts input array by specified digit using counting sort algorithm
+     * Sorts input array by specified digit using counting sort algorithm. In fact this is a bucket sort
+     * where each of 10 buckets correspond to one of 10 possible decimal system digit values (from 0 to 9).
      * @param arr
      * @param digitNumber
      */
@@ -51,7 +52,7 @@ public class RadixSort : SortAlgorithm {
      */
     private fun digitAt(number: Long, digitNumber: Int) : Int{
         var numberString = number.toString();
-        return if (digitNumber <= numberString.length())
+        return if (digitNumber <= numberString.length() - 1)
             numberString.charAt(numberString.length() - digitNumber - 1).toString().toInt() //Char.toInt() is a char code
             else 0;
     }
