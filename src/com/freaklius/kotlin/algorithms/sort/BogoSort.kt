@@ -4,16 +4,16 @@ package com.freaklius.kotlin.algorithms.sort
  * An implementation of the most stupid sort algorithm =P
  * AveragePerformance = O(n*n!) -> Infinity
  */
-public class BogoSort : SortAlgorithm{
+class BogoSort : SortAlgorithm{
 
-    public override fun sort(arr: Array<Long>) : Array<Long>{
+    override fun sort(arr: Array<Long>) : Array<Long>{
         while(!isSortedAsc(arr)){
-            shuffleArray(arr);
+            shuffleArray(arr)
         }
-        return arr;
+        return arr
     }
 
-    public override fun getName(): String {
-        return "BogoSort";
+    override fun getName(): String {
+        return "BogoSort"
     }
 }

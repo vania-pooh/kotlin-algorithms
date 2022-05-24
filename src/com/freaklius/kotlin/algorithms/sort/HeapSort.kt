@@ -4,22 +4,22 @@ package com.freaklius.kotlin.algorithms.sort
  * Heap sort algorithm
  * AveragePerformance = O(n*lg(n))
  */
-public class HeapSort : SortAlgorithm {
+class HeapSort : SortAlgorithm {
     /**
      * Stores size of the heap to be used
      */
-    private var heapSize = 0;
+    private var heapSize = 0
 
-    public override fun sort(arr: Array<Long>): Array<Long> {
-        buildMaxHeap(arr);
-        var i: Int = arr.size - 1;
+    override fun sort(arr: Array<Long>): Array<Long> {
+        buildMaxHeap(arr)
+        var i: Int = arr.size - 1
         while (i >= 1){
-            swap(arr, i, 0);
-            heapSize--;
-            maxHeapify(arr, 0);
-            i--;
+            swap(arr, i, 0)
+            heapSize--
+            maxHeapify(arr, 0)
+            i--
         }
-        return arr;
+        return arr
     }
 
     /**
@@ -27,11 +27,11 @@ public class HeapSort : SortAlgorithm {
      * @param arr
      */
     private fun buildMaxHeap(arr: Array<Long>){
-        heapSize = arr.size;
-        var i: Int = Math.floor(arr.size / 2.0).toInt();
+        heapSize = arr.size
+        var i: Int = Math.floor(arr.size / 2.0).toInt()
         while (i >= 0){
-            maxHeapify(arr, i);
-            i--;
+            maxHeapify(arr, i)
+            i--
         }
     }
 
@@ -42,21 +42,21 @@ public class HeapSort : SortAlgorithm {
      * MaxHeap property
      */
     private fun maxHeapify(arr: Array<Long>, i: Int){
-        var leftElementIndex = left(i);
-        var rightElementIndex = right(i);
-        var largestElementIndex : Int = i;
+        val leftElementIndex = left(i)
+        val rightElementIndex = right(i)
+        var largestElementIndex : Int = i
 
         if ( (leftElementIndex <= heapSize - 1) && (arr[leftElementIndex] > arr[i]) ){
-            largestElementIndex = leftElementIndex;
+            largestElementIndex = leftElementIndex
         }
 
         if ( (rightElementIndex <= heapSize - 1) && (arr[rightElementIndex] > arr[largestElementIndex]) ){
-            largestElementIndex = rightElementIndex;
+            largestElementIndex = rightElementIndex
         }
 
         if (largestElementIndex != i){
-            swap(arr, i, largestElementIndex);
-            maxHeapify(arr, largestElementIndex);
+            swap(arr, i, largestElementIndex)
+            maxHeapify(arr, largestElementIndex)
         }
     }
 
@@ -65,7 +65,7 @@ public class HeapSort : SortAlgorithm {
      * @param i an element to get the left element
      */
     private fun left(i: Int) : Int{
-        return 2 * i + 1;
+        return 2 * i + 1
     }
 
     /**
@@ -73,10 +73,10 @@ public class HeapSort : SortAlgorithm {
      * @param i an element to get the left element
      */
     private fun right(i: Int) : Int{
-        return 2 * i + 2;
+        return 2 * i + 2
     }
 
-    public override fun getName(): String {
-        return "HeapSort";
+    override fun getName(): String {
+        return "HeapSort"
     }
 }
