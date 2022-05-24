@@ -4,11 +4,11 @@ package com.freaklius.kotlin.algorithms.sort
  * Quick sort algorithm implementation
  * AveragePerformance = O(n*lg(n))
  */
-public class QuickSort : SortAlgorithm {
+class QuickSort : SortAlgorithm {
 
-    public override fun sort(arr: Array<Long>): Array<Long> {
-        sortArrayPart(arr, 0, arr.size - 1);
-        return arr;
+    override fun sort(arr: Array<Long>): Array<Long> {
+        sortArrayPart(arr, 0, arr.size - 1)
+        return arr
     }
 
     /**
@@ -21,17 +21,17 @@ public class QuickSort : SortAlgorithm {
      * @return returns middleIndex value
      */
     private fun partition(arr: Array<Long>, fromIndex: Int, toIndex: Int) : Int{
-        var lastElementValue = arr[toIndex];
-        var i = fromIndex - 1;
+        val lastElementValue = arr[toIndex]
+        var i = fromIndex - 1
         for (j in fromIndex..toIndex - 1){
             if (arr[j] <= lastElementValue){
-                i++;
-                swap(arr, i, j);
+                i++
+                swap(arr, i, j)
             }
         }
         //Swapping leftmost element of the second part with the last element of the array, i.e. with middle element
-        swap(arr, i + 1, toIndex);
-        return i + 1;
+        swap(arr, i + 1, toIndex)
+        return i + 1
     }
 
     /**
@@ -42,13 +42,13 @@ public class QuickSort : SortAlgorithm {
      */
     private fun sortArrayPart(arr: Array<Long>, fromIndex: Int, toIndex: Int){
         if (fromIndex < toIndex){
-            var middleIndex = partition(arr, fromIndex, toIndex);
-            sortArrayPart(arr, fromIndex, middleIndex - 1);
-            sortArrayPart(arr, middleIndex + 1, toIndex);
+            val middleIndex = partition(arr, fromIndex, toIndex)
+            sortArrayPart(arr, fromIndex, middleIndex - 1)
+            sortArrayPart(arr, middleIndex + 1, toIndex)
         }
     }
 
-    public override fun getName(): String {
-        return "QuickSort";
+    override fun getName(): String {
+        return "QuickSort"
     }
 }

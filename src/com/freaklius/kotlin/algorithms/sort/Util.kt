@@ -11,19 +11,19 @@ import java.util.Random
  * @param arr an array to be converted to string
  */
 fun <T> arrayToString(arr: Array<T> ) : String{
-    var str = "Array(";
-    var isFirst: Boolean = true;
+    var str = "Array("
+    var isFirst = true
     for (element in arr){
         if (!isFirst){
-            str += ", ";
+            str += ", "
         }
-        str += element;
+        str += element
         if (isFirst){
-            isFirst = false;
+            isFirst = false
         }
     }
-    str += ")";
-    return str;
+    str += ")"
+    return str
 }
 
 /**
@@ -31,12 +31,12 @@ fun <T> arrayToString(arr: Array<T> ) : String{
  * @param arr an array to shuffle
  */
 fun shuffleArray(arr: Array<Long>) : Array<Long>{
-    val rg : Random = Random();
+    val rg = Random()
     for (i in 0..arr.size - 1) {
-        val randomPosition = rg.nextInt(arr.size);
-        swap(arr, i, randomPosition);
+        val randomPosition = rg.nextInt(arr.size)
+        swap(arr, i, randomPosition)
     }
-    return arr;
+    return arr
 }
 
 /**
@@ -46,10 +46,10 @@ fun shuffleArray(arr: Array<Long>) : Array<Long>{
  * @param j
  */
 fun swap(arr: Array<Long>, i: Int, j: Int) : Array<Long>{
-    val tmp : Long = arr[i];
-    arr[i] = arr[j];
-    arr[j] = tmp;
-    return arr;
+    val tmp : Long = arr[i]
+    arr[i] = arr[j]
+    arr[j] = tmp
+    return arr
 }
 
 /**
@@ -58,7 +58,7 @@ fun swap(arr: Array<Long>, i: Int, j: Int) : Array<Long>{
  * @param maxValue
  */
 fun randomNumericArray(length: Int, maxValue : Int = 10) : Array<Long>{
-    return Array<Long>(length, {i -> Math.round(maxValue * Math.random())});
+    return Array<Long>(length, {i -> Math.round(maxValue * Math.random())})
 }
 
 /**
@@ -68,21 +68,21 @@ fun randomNumericArray(length: Int, maxValue : Int = 10) : Array<Long>{
 fun isSortedAsc(arr: Array<Long>) : Boolean{
     for (i in 0..arr.size - 2){
         if (arr[i] > arr[i + 1]){
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 /**
  * Returns maximum value of an array (a linear complexity operation).
  */
 fun maximum(arr: Array<Long>) : Int{
-    var max : Int = 0;
+    var max = 0
     for (value in arr){
         if (value > max){
-            max = value.toInt();
+            max = value.toInt()
         }
     }
-    return max;
+    return max
 }
