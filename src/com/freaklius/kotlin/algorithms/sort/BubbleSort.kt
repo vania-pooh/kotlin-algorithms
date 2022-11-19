@@ -8,14 +8,16 @@ class BubbleSort : SortAlgorithm{
 
     override fun sort(arr: Array<Long>): Array<Long> {
         var swappedElements : Boolean
+        var level = arr.size - 1
         do {
             swappedElements = false
-            for (i in 0..arr.size - 2){
+            for (i in 0..level - 1){
                 if (arr[i] > arr[i + 1]){
                     swap(arr, i, i + 1)
                     swappedElements = true
                 }
             }
+            level--
         } while (swappedElements)
         return arr
     }
