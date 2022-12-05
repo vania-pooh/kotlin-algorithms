@@ -1,0 +1,7 @@
+fun <T: Comparable<T>> estouComSort(list: List<T>): List<T> = list.let {
+  if (it.windowed(2).all { a -> a[0] < a[1] })
+    it
+  else
+    it.toMutableList()
+      .apply { this.shuffle() }.let { sort(it) }
+}
